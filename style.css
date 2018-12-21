@@ -1,0 +1,73 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: sans-serif;
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  padding: 2rem 3rem;
+  margin: 0;
+  display:flex;
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.form {
+  width:100%;
+  max-width:400px;
+  margin:auto;
+  padding-bottom: 4rem;
+}
+
+.form .grid {
+  display:flex;
+  border:0;
+  padding:0;
+  margin:0;
+}
+
+.form label {
+  margin-bottom:1rem;
+  display:block;
+}
+
+.form .left {
+  width: 65%;
+}
+
+.form .right {
+  width:35%;
+}
+
+.form input,
+.form button {
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  width:100%;
+}
+
+.form input {
+  background: white;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius: 5px 0 0 5px;
+  border-right:0;
+}
+
+.form button {
+  cursor: pointer;
+  background: white;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius: 0 5px 5px 0;
+}
+
+.form button:hover {
+  background: rgba(0,0,0,.1)
+}
