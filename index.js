@@ -9,8 +9,14 @@ const codePlayer = new MorseCodePlayer({
 
 const form = document.getElementById('form')
 const input = document.getElementById('message')
+const output = document.getElementById('translated')
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
-  codePlayer.playMessage(input.value)
+
+  const message = input.value
+  codePlayer.playMessage(message)
+
+  const encoded = translator.encode(message)
+  output.innerHTML = encoded
 })

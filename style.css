@@ -23,7 +23,7 @@ h1 {
   width:100%;
   max-width:400px;
   margin:auto;
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
 .form .grid {
@@ -70,4 +70,8 @@ h1 {
 
 .form button:hover {
   background: rgba(0,0,0,.1)
+}
+
+.message {
+  padding: 0 10px;
 }
