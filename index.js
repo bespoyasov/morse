@@ -13,7 +13,7 @@ const input = document.getElementById('message')
 const output = document.getElementById('translated')
 
 document.addEventListener('DOMContentLoaded', () => {
-  const initialText = stateObserver.currentState() || 'DJENT!!11001';
+  const initialText = stateObserver.currentState() || 'DJENT!';
   input.value = initialText;
 
   const encoded = translator.encode(initialText)
