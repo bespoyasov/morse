@@ -1,14 +1,14 @@
 /**
- * Morse code is usually heard at the receiver as 
+ * Morse code is usually heard at the receiver as
  * a medium-pitched on/off audio tone (600–1000 Hz):
- * 
- * All Morse code elements depend on the dot length. 
- * A dash is the length of 3 dots, 
- * and spacings are specified in number of dot lengths. 
- * 
- * An unambiguous method of specifying the transmission speed 
+ *
+ * All Morse code elements depend on the dot length.
+ * A dash is the length of 3 dots,
+ * and spacings are specified in number of dot lengths.
+ *
+ * An unambiguous method of specifying the transmission speed
  * is to specify the dot duration as 50 ms:
- * https://en.wikipedia.org/wiki/Morse_code 
+ * https://en.wikipedia.org/wiki/Morse_code
  */
 
 class MorseCodePlayer {
@@ -42,8 +42,8 @@ class MorseCodePlayer {
   getSignalDuration = smbl => {
     const {dot, dash} = this.durations
     switch (smbl) {
-      case '.': return dot
-      case '-': return dash
+      case '0': return dot
+      case '1': return dash
       default:  return 0;
     }
   }

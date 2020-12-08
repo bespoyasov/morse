@@ -1,29 +1,29 @@
 /**
- * Uses standard oscillator, based on WebAudioAPI:
- * https://developer.mozilla.org/ru/docs/Web/API/Web_Audio_API
+ * This module became a bit dirty
+ * but I don't care :–D
  */
 
 class SoundEmitter {
-  constructor(config={}) {
-    const { glbl=window, frequencyHZ=600 } = config
-    const AudioContext = glbl.AudioContext || glbl.webkitAudioContext
+  constructor() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext
     if (!AudioContext) throw new Error(soundEmitterErrors.noCtx)
-    
+
     this.audioCtx = new AudioContext()
-    this.frequencyHZ = frequencyHZ
+    this.initAdaptee();
   }
 
-  createOscillator = () => {
-    const oscillator = this.audioCtx.createOscillator()
-    oscillator.frequency.value = this.frequencyHZ
-    oscillator.connect(this.audioCtx.destination)
-    
-    return oscillator
+  initAdaptee = async () => {
+    console.log('init')
+    this.source = await Soundfont.instrument(this.audioCtx, 'distortion_guitar');
+    console.log(this.source)
   }
 
-  play = durationMS => {
-    const oscillator = this.createOscillator()
-    oscillator.start()
-    oscillator.stop(this.audioCtx.currentTime + durationMS / 1000)
+  play = (durationMS) => {
+    if (!this.source) throw new Error('Not ready yet...');
+    this.source.play(
+      durationMS > 50 ? 'F1' : 'E1',
+      this.audioCtx.currentTime,
+      { duration: durationMS / 1000}
+    )
   }
 }
