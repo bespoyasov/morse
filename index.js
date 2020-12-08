@@ -1,4 +1,5 @@
 const alphabet = defaultAlphabet
+const defaultMessage = 'DJENT!';
 
 const stateObserver = new StateObserver();
 const translator = new Translator({ alphabet })
@@ -13,7 +14,7 @@ const input = document.getElementById('message')
 const output = document.getElementById('translated')
 
 document.addEventListener('DOMContentLoaded', () => {
-  const initialText = stateObserver.currentState() || 'DJENT!';
+  const initialText = stateObserver.currentState() || defaultMessage;
   input.value = initialText;
 
   const encoded = translator.encode(initialText)
@@ -29,5 +30,7 @@ form.addEventListener('submit', (e) => {
   const encoded = translator.encode(message)
   output.innerHTML = encoded
 
-  stateObserver.updateState(message);
+  if (message !== defaultMessage) {
+    stateObserver.updateState(message);
+  }
 })
