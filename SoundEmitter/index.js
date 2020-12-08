@@ -13,9 +13,8 @@ class SoundEmitter {
   }
 
   initAdaptee = async () => {
-    console.log('init')
     this.source = await Soundfont.instrument(this.audioCtx, 'distortion_guitar');
-    console.log(this.source)
+    document.getElementById('play').removeAttribute('disabled')
   }
 
   play = (durationMS) => {
